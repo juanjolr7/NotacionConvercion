@@ -15,6 +15,8 @@ import javax.swing.UnsupportedLookAndFeelException;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.HashMap;
+import javax.swing.JButton;
+import javax.swing.JTextArea;
 import javax.swing.Timer;
 
 /**
@@ -74,20 +76,58 @@ public class Compilador extends javax.swing.JFrame {
     private void initComponents() {
 
         rootPanel = new javax.swing.JPanel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jtpCode = new javax.swing.JTextPane();
         panelButtonCompilerExecute = new javax.swing.JPanel();
-        btnCompilar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jtaOutputConsole = new javax.swing.JTextArea();
+        notacionPostfijaT = new javax.swing.JTextArea();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jtaOutputConsole1 = new javax.swing.JTextArea();
+        notacionPrefijaT = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        notacionInfijaT = new javax.swing.JTextArea();
+        btnCompilar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         getContentPane().setLayout(new javax.swing.BoxLayout(getContentPane(), javax.swing.BoxLayout.LINE_AXIS));
 
-        jtpCode.setForeground(new java.awt.Color(255, 255, 255));
-        jScrollPane1.setViewportView(jtpCode);
+        javax.swing.GroupLayout panelButtonCompilerExecuteLayout = new javax.swing.GroupLayout(panelButtonCompilerExecute);
+        panelButtonCompilerExecute.setLayout(panelButtonCompilerExecuteLayout);
+        panelButtonCompilerExecuteLayout.setHorizontalGroup(
+            panelButtonCompilerExecuteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 169, Short.MAX_VALUE)
+        );
+        panelButtonCompilerExecuteLayout.setVerticalGroup(
+            panelButtonCompilerExecuteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 36, Short.MAX_VALUE)
+        );
+
+        notacionPostfijaT.setEditable(false);
+        notacionPostfijaT.setBackground(new java.awt.Color(70, 73, 75));
+        notacionPostfijaT.setColumns(20);
+        notacionPostfijaT.setForeground(new java.awt.Color(255, 255, 255));
+        notacionPostfijaT.setRows(5);
+        jScrollPane2.setViewportView(notacionPostfijaT);
+
+        notacionPrefijaT.setEditable(false);
+        notacionPrefijaT.setBackground(new java.awt.Color(70, 73, 75));
+        notacionPrefijaT.setColumns(20);
+        notacionPrefijaT.setForeground(new java.awt.Color(255, 255, 255));
+        notacionPrefijaT.setRows(5);
+        jScrollPane4.setViewportView(notacionPrefijaT);
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel1.setText("Infija");
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel2.setText("Prefija");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel3.setText("Postfija");
+
+        notacionInfijaT.setColumns(20);
+        notacionInfijaT.setRows(5);
+        jScrollPane3.setViewportView(notacionInfijaT);
 
         btnCompilar.setText("Compilar");
         btnCompilar.addActionListener(new java.awt.event.ActionListener() {
@@ -96,53 +136,33 @@ public class Compilador extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout panelButtonCompilerExecuteLayout = new javax.swing.GroupLayout(panelButtonCompilerExecute);
-        panelButtonCompilerExecute.setLayout(panelButtonCompilerExecuteLayout);
-        panelButtonCompilerExecuteLayout.setHorizontalGroup(
-            panelButtonCompilerExecuteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelButtonCompilerExecuteLayout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(btnCompilar)
-                .addContainerGap(65, Short.MAX_VALUE))
-        );
-        panelButtonCompilerExecuteLayout.setVerticalGroup(
-            panelButtonCompilerExecuteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelButtonCompilerExecuteLayout.createSequentialGroup()
-                .addGap(0, 13, Short.MAX_VALUE)
-                .addComponent(btnCompilar))
-        );
-
-        jtaOutputConsole.setEditable(false);
-        jtaOutputConsole.setBackground(new java.awt.Color(70, 73, 75));
-        jtaOutputConsole.setColumns(20);
-        jtaOutputConsole.setForeground(new java.awt.Color(255, 255, 255));
-        jtaOutputConsole.setRows(5);
-        jScrollPane2.setViewportView(jtaOutputConsole);
-
-        jtaOutputConsole1.setEditable(false);
-        jtaOutputConsole1.setBackground(new java.awt.Color(70, 73, 75));
-        jtaOutputConsole1.setColumns(20);
-        jtaOutputConsole1.setForeground(new java.awt.Color(255, 255, 255));
-        jtaOutputConsole1.setRows(5);
-        jScrollPane4.setViewportView(jtaOutputConsole1);
-
         javax.swing.GroupLayout rootPanelLayout = new javax.swing.GroupLayout(rootPanel);
         rootPanel.setLayout(rootPanelLayout);
         rootPanelLayout.setHorizontalGroup(
             rootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(rootPanelLayout.createSequentialGroup()
-                .addGroup(rootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(17, 17, 17)
+                .addGroup(rootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(panelButtonCompilerExecute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(rootPanelLayout.createSequentialGroup()
-                        .addGap(536, 536, 536)
-                        .addComponent(panelButtonCompilerExecute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(rootPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 226, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 434, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(7, Short.MAX_VALUE))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 314, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 374, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
+            .addGroup(rootPanelLayout.createSequentialGroup()
+                .addGap(142, 142, 142)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(350, 350, 350)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(175, 175, 175))
+            .addGroup(rootPanelLayout.createSequentialGroup()
+                .addGap(507, 507, 507)
+                .addComponent(btnCompilar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         rootPanelLayout.setVerticalGroup(
             rootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,10 +171,17 @@ public class Compilador extends javax.swing.JFrame {
                 .addComponent(panelButtonCompilerExecute, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(15, 15, 15)
                 .addGroup(rootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2)
-                    .addComponent(jScrollPane1))
-                .addGap(223, 223, 223))
+                    .addComponent(jScrollPane3)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2))
+                .addGap(18, 18, 18)
+                .addGroup(rootPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addGap(75, 75, 75)
+                .addComponent(btnCompilar)
+                .addGap(159, 159, 159))
         );
 
         getContentPane().add(rootPanel);
@@ -172,8 +199,18 @@ public class Compilador extends javax.swing.JFrame {
             //        }
     }//GEN-LAST:event_btnCompilarActionPerformed
 
-
-
+    public JTextArea getInfija(){
+          return this.notacionInfijaT;
+    }
+    public JTextArea getPrefija(){
+        return this.notacionPrefijaT;
+    }
+    public JTextArea getPostfija(){
+        return this.notacionPostfijaT;
+    }
+    public JButton getBotonCompilar(){
+        return this.btnCompilar;
+    }
 //    private void compile() {
 //        clearFields();
 //        lexicalAnalysis();
@@ -305,12 +342,15 @@ public class Compilador extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCompilar;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jtaOutputConsole;
-    private javax.swing.JTextArea jtaOutputConsole1;
-    private javax.swing.JTextPane jtpCode;
+    private javax.swing.JTextArea notacionInfijaT;
+    private javax.swing.JTextArea notacionPostfijaT;
+    private javax.swing.JTextArea notacionPrefijaT;
     private javax.swing.JPanel panelButtonCompilerExecute;
     private javax.swing.JPanel rootPanel;
     // End of variables declaration//GEN-END:variables

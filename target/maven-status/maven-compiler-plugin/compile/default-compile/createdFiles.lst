@@ -1,4 +1,7 @@
-interfaz\Compilador.class
-com\mycompany\notacionconversion\NotacionConversion.class
-interfaz\Compilador$1.class
+conversion\NotacionConversion.class
 interfaz\Compilador$2.class
+controlador\Controlador$1.class
+interfaz\Compilador.class
+controlador\Controlador.class
+interfaz\Compilador$1.class
+App\aplicacion.class

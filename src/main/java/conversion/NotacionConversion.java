@@ -1,4 +1,4 @@
-package com.mycompany.notacionconversion;
+package conversion;
 import java.util.Stack;
 /**
  *
@@ -7,7 +7,7 @@ import java.util.Stack;
 public class NotacionConversion {
 
     // Precedencia de operadores
-    static int getPrecedence(char ch) {
+    public int getPrecedence(char ch) {
         switch (ch) {
             case '+':
             case '-':
@@ -22,7 +22,7 @@ public class NotacionConversion {
     }
 
     // Convertir infijo a postfijo
-    static String infijoAPostfijo(String expression) {
+    public String infijoAPostfijo(String expression) {
         StringBuilder result = new StringBuilder();
         Stack<Character> stack = new Stack<>();
 
@@ -62,7 +62,7 @@ public class NotacionConversion {
     }
 
     // Convertir infijo a prefijo
-    static String infijoAPrefijo(String expression) {
+    public String infijoAPrefijo(String expression) {
         // Invertir la expresión
         StringBuilder reversedExpression = new StringBuilder(expression).reverse();
         Stack<Character> stack = new Stack<>();
@@ -112,10 +112,11 @@ public class NotacionConversion {
     }
 
     public static void main(String[] args) {
-        String expression = "A+B*C-D/E";
+        NotacionConversion conversion = new NotacionConversion();
+        String expression = "(A+B)*E";
 
         System.out.println("Expresión infija: " + expression);
-        System.out.println("Notación postfija: " + infijoAPostfijo(expression));
-        System.out.println("Notación prefija: " + infijoAPrefijo(expression));
+        System.out.println("Notación postfija: " + conversion.infijoAPostfijo(expression));
+        System.out.println("Notación prefija: " + conversion.infijoAPrefijo(expression));
     }
 }
